@@ -13,14 +13,21 @@ public class MaxWitdthOfTree {
     static class Solution {
         int max = Integer.MIN_VALUE;
         public int maxPathSum(TreeNode root) {
+            process(root);
+            return max;
+        }
+
+        public int process(TreeNode root){
             if(root == null) {
                 return 0;
             }
-            int left = maxPathSum(root.left);
-            int right = maxPathSum(root.right);
+            int left = process(root.left);
+            int right = process(root.right);
             int m = Math.max(left, right);
             max = Math.max(max, root.val+left+right);
             return root.val+m;
         }
     }
+
+
 }
