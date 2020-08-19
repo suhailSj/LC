@@ -49,6 +49,11 @@ public class Test {
         list.add(new Employee(1, 104, "dd", 3333));
         list.add(new Employee(2, 101, "ee", 4444));
 
+        int xor =6;
+        int n = xor & (-xor);
+        System.out.println(n & 2);
+        System.out.println(Integer.toBinaryString(10));
+        System.out.println(Integer.toBinaryString(-10));
         //System.out.println(list.stream().collect(Collectors.groupingBy(Employee::getManagerId, Collectors.mapping(Employee::getEmployeeId, Collectors.toList()) )));
 //        System.out.println("normal"+list.stream()
 //                .collect(groupingBy(Employee::getManagerId, Collectors.summingInt( ))));
