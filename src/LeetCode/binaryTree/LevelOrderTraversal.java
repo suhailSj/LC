@@ -20,6 +20,21 @@ public class LevelOrderTraversal {
             }
             Queue<TreeNode> queue = new LinkedList<>();
             queue.add(root);
+            TreeNode node = null;
+            Queue<TreeNode> tmpQueue = null;
+            while (!queue.isEmpty()){
+                tmpQueue = new LinkedList<>();
+                List<Integer> li = new ArrayList<>();
+                while (!queue.isEmpty()){
+                    node = queue.remove();
+                    li.add(node.val);
+                    if(node.left != null)tmpQueue.add(node.left);
+                    if(node.right != null)tmpQueue.add(node.right);
+                }
+                queue = tmpQueue;
+                ans.add(li);
+            }
+            return ans;
         }
     }
 }
