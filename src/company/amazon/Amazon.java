@@ -1,4 +1,4 @@
-package sol1.learn;
+package company.amazon;
 
 import java.util.*;
 

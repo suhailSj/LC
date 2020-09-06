@@ -1,10 +1,4 @@
-package sol1;
-
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+package company;
 
 public class ArvingIntranet2 {
 

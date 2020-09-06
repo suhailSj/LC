@@ -1,6 +1,5 @@
-package sol1;
+package company;
 
-import LeetCode.Tree.TreeHelper;
 import LeetCode.Tree.TreeNode;
 
 import java.util.*;
