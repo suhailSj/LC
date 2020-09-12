@@ -6,37 +6,32 @@ public class CoinChange2 {
 
     public static void main(String... a) {
         Solution sol = new Solution();
-        System.out.println(sol.change(18, new int[]{1,3,5}));
+        System.out.println(sol.coinChange(new int[]{3,5}, 4));
     }
     static class Solution {
-        public int change(int amount, int[] coins) {
-
+        public int coinChange(int[] coins, int amount) {
             int[] dp = new int[amount+1];
-            Arrays.fill(dp, -1);
-            dp[0] = 0;
-            int ans = process(amount,coins,dp);
-            for(int i : dp){
-                System.out.print(i+" ");
-            }
-            System.out.println("");
-            return ans;
+            Arrays.fill(dp, -8);
+            dp[0] =0;
+            return process(coins,amount,dp);
         }
 
-        public int process(int amount, int[] coins,int[] dp){
-
-            if(dp[amount] != -1){
+        public int process(int[] coins, int amount, int[] dp){
+            if(dp[amount] != -8){
                 return dp[amount];
             }
-
-
             int min = Integer.MAX_VALUE;
-            for(int i =0; i<coins.length; i++){
-                if(amount - coins[i] >=0){
-                    min = Math.min(min, process(amount - coins[i], coins, dp)+1);
-                }
 
+            for(int i:coins){
+                if(amount -i >=0){
+                    min = Math.min(process(coins, amount-i, dp)+1, min);
+                }
+            }
+            if(min == Integer.MAX_VALUE){
+                return dp[amount] = -2;
             }
             return dp[amount] = min;
+
         }
     }
 }
