@@ -15,11 +15,11 @@ public class AllBST {
     static class Solution {
 
         public List<TreeNode> generateTrees(int n) {
-            int[] arr = new int[n];
-
-            for(int i=0; i<n;i++){
-                arr[i] = i+1;
-            }
+//            int[] arr = new int[n];
+//
+//            for(int i=0; i<n;i++){
+//                arr[i] = i+1;
+//            }
             List<TreeNode> list = new ArrayList<TreeNode>();
             for(int i=1;i<=n;i++){
                 list.addAll(process(i,i-1,i+1,n+1,0, i));

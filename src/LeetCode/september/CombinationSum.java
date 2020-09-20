@@ -1,8 +1,10 @@
 package LeetCode.september;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * created by suhail.jahangir on 13/09/20
@@ -26,25 +28,33 @@ import java.util.Set;
  */
 public class CombinationSum {
 
+    public static void main(String... a){
+        Solution sol = new Solution();
+        System.out.println(sol.combinationSum3(3, 9));
+    }
     static class Solution {
-        List<List<Integer>> ans = new ArrayList<>();
-        public List<Set<Integer>> combinationSum3(int k, int n) {
+        Set<Set<Integer>> ans = new HashSet<>();
+        public List<List<Integer>> combinationSum3(int k, int n) {
             int[] dp = new int[n+1];
-            process(k, n, dp, new ArrayList<>(), 0);
-            return ans;
+            process(k, n, dp, new HashSet<Integer>(), 1, 0);
+            return ans.stream().map(ArrayList::new).collect(Collectors.toList());
         }
 
-        public void process(int k, int n, int[] dp, ArrayList<Integer> list, int curr){
-            if(list.size() == k){
-                if(curr == n ){
-                    ans.add(list);
-                }
-                return ;
+        public void process(int k, int n, int[] dp, Set<Integer> list, int curr, int sum){
+            if(sum == n && list.size() == k){
+                ans.add(list);
+                return;
             }
 
-            for(int i =1; i<10; i++){
+           if(curr > 9 || list.size() > k || sum >n){
+               return;
+           }
+            process(k, n, dp, new HashSet<>(list), curr+1, sum);
+           list.add(curr);
+           process(k,n,dp, list, curr+1, sum + curr);
 
-            }
+
+
         }
     }
 }
