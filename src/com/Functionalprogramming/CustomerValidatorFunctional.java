@@ -1,7 +1,5 @@
 package com.Functionalprogramming;
 
-import sun.print.CUPSPrinter;
-
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
